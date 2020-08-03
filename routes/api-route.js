@@ -1,20 +1,69 @@
-//where the get, get, post calls go.
+const db = require("../models/workout.js");
+module.exports = function (app) {
 
-//create and post
 
 
-//update workout
-app.post("/update/:id", (req, res) => {
-    db.workout.update(
+  //create new workout
+/*   app.post("/api/workouts/", (req, res) => {
+    db.Workout.create({}, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.json(data);
+      }
+    });
+  }); */
+
+  app.get("/api/workouts/", (req, res) => {
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+  app.post("/api/workouts", (req, res) => {
+    db.Workout.create({})
+    .then(newWorkout => {
+      res.json(newWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+  });
+
+
+  //view all workouts
+/*   app.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({}, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.json(data);
+      }
+    });
+  }); */
+
+/*   app.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+ */
+  //continue and update workout
+/* app.put("/api/workouts/:id", (req, res) => {
+    db.Workout.update(
       {
-        _id: mongojs.ObjectId(req.params.id)
+        _id: req.params.id
       },
       {
-        $set: {
-          //title: req.body.title,
-          //note: req.body.note,
-          //modified: Date.now()
-        }
+        $push: {exercises:req.body}
       },
       (error, data) => {
         if (error) {
@@ -24,15 +73,16 @@ app.post("/update/:id", (req, res) => {
         }
       }
     );
-  });
+  }); */
 
-  //view all workouts
-  app.get("/all", (req, res) => {
-    db.workout.find({}, (error, data) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.json(data);
-      }
+/*   app.put("/api/workouts/:id", (req, res) => {
+    db.Workout.update({_id: req.params.id},
+    {$push:{"exercises": req.body}})
+    .then(updatedWorkout => {
+      res.json(updatedWorkout);
+    })
+    .catch(err => {
+      res.json(err);
     });
-  });
+    }); */
+}; 

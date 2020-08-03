@@ -26,20 +26,20 @@ const workoutSchema = new Schema({
         },
 
         weight: {
-            type:Number,
+            type: Number,
         },
 
         reps: {
-            type:Number,
+            type: Number,
         },
 
         sets: {
-            type:Number,
+            type: Number,
         }
      }]
 });
 
 
-const workout = mongoose.model("workout", workoutSchema);
+const Workout = mongoose.model("Workout", workoutSchema);
 
-module.exports = workout;
+module.exports = Workout;
