@@ -13,9 +13,9 @@ Creating a workout tracker where front end code has been provided. A Mongo datab
 https://ancient-earth-19560.herokuapp.com/
 
 ## Screenshots
-<img src="./public/assets/dashboard.JPG" width="200" height="200">
-<img src="./public/assets/addexercise.JPG" width="200" height="200">
-<img src="./public/assets/stats.JPG" width="200" height="200">
+<img src="./public/assets/dashboard.JPG" width="400" height="400">
+<img src="./public/assets/addexercise.JPG" width="400" height="400">
+<img src="./public/assets/stats.JPG" width="600" height="400">
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
