@@ -13,10 +13,18 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+const MONGODB_URI = "mongodb+srv://vsomsouk:HELLO123!@cluster0.lydsp.mongodb.net/workout?retryWrites=true&w=majority"
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { 
+  useNewUrlParser: true, 
+  useFindAndModify: false, 
+  useUnifiedTopology: true
 })
 .catch(  err => {console.log(err)});
+
+mongoose.connection.on('connected', () => {
+  console.log('mongoose is connected')
+})
 
 require("./routes/api-route")(app);
 require("./routes/html-route")(app);
