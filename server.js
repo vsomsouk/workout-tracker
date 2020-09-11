@@ -13,7 +13,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongodb+srv://vsomsouk:HELLO123!@cluster0.lydsp.mongodb.net/workout?retryWrites=true&w=majority
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true
 })
