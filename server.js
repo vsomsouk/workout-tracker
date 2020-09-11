@@ -13,6 +13,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+mongodb+srv://vsomsouk:<password>@cluster0.lydsp.mongodb.net/<dbname>?retryWrites=true&w=majority
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true
 })
 .catch(  err => {console.log(err)});
